@@ -1,0 +1,5 @@
+mean_diff,ci_low,ci_high,p_value,n,baseline,compare,metric
+0.0758,0.0,0.1894,0.088,22,rag_0shot,fewshot_5,completeness
+0.0909,0.0076,0.1894,0.025,22,rag_0shot,rag_k18,completeness
+-0.0227,-0.1894,0.1439,0.829,22,rag_0shot,agent,completeness
+-0.1136,-0.2727,0.0152,0.126,22,rag_k18,agent,completeness

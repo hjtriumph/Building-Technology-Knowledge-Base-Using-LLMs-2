@@ -1,0 +1,12 @@
+{
+  "n": 21,
+  "exact": 1.0,
+  "within_025": 1.0,
+  "weighted_kappa": 1.0,
+  "faithfulness": {
+    "n": 17,
+    "exact": 0.8235,
+    "within_025": 0.8824,
+    "weighted_kappa": -0.0552
+  }
+}

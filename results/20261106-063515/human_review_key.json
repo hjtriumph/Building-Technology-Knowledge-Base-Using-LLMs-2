@@ -1,0 +1,177 @@
+{
+  "s001": {
+    "method": "fewshot_no_cot_3",
+    "case_id": "c007",
+    "type": "single_hop",
+    "completeness": 1.0,
+    "faithfulness": 1.0
+  },
+  "s002": {
+    "method": "fewshot_no_cot_3",
+    "case_id": "c001",
+    "type": "numeric",
+    "completeness": 1.0,
+    "faithfulness": 1.0
+  },
+  "s003": {
+    "method": "fewshot_5",
+    "case_id": "c011",
+    "type": "multi_hop",
+    "completeness": 1.0,
+    "faithfulness": 1.0
+  },
+  "s004": {
+    "method": "agent",
+    "case_id": "c004",
+    "type": "numeric",
+    "completeness": 0.0,
+    "faithfulness": 1.0
+  },
+  "s005": {
+    "method": "rag_0shot",
+    "case_id": "c007",
+    "type": "single_hop",
+    "completeness": 1.0,
+    "faithfulness": 1.0
+  },
+  "s006": {
+    "method": "llm",
+    "case_id": "c004",
+    "type": "numeric",
+    "completeness": 0.0,
+    "faithfulness": null
+  },
+  "s007": {
+    "method": "rag_0shot",
+    "case_id": "c004",
+    "type": "numeric",
+    "completeness": 1.0,
+    "faithfulness": 1.0
+  },
+  "s008": {
+    "method": "fewshot_3",
+    "case_id": "c023",
+    "type": "unanswerable",
+    "completeness": null,
+    "faithfulness": null
+  },
+  "s009": {
+    "method": "agent",
+    "case_id": "c026",
+    "type": "unanswerable",
+    "completeness": null,
+    "faithfulness": null
+  },
+  "s010": {
+    "method": "fewshot_1",
+    "case_id": "c001",
+    "type": "numeric",
+    "completeness": 1.0,
+    "faithfulness": 1.0
+  },
+  "s011": {
+    "method": "fewshot_5",
+    "case_id": "c022",
+    "type": "method",
+    "completeness": 0.0,
+    "faithfulness": 1.0
+  },
+  "s012": {
+    "method": "rag_0shot",
+    "case_id": "c014",
+    "type": "multi_hop",
+    "completeness": 1.0,
+    "faithfulness": 1.0
+  },
+  "s013": {
+    "method": "fewshot_3",
+    "case_id": "c004",
+    "type": "numeric",
+    "completeness": 1.0,
+    "faithfulness": 1.0
+  },
+  "s014": {
+    "method": "llm",
+    "case_id": "c016",
+    "type": "multi_hop",
+    "completeness": 0.0,
+    "faithfulness": null
+  },
+  "s015": {
+    "method": "rag_k18",
+    "case_id": "c015",
+    "type": "multi_hop",
+    "completeness": 1.0,
+    "faithfulness": 1.0
+  },
+  "s016": {
+    "method": "llm_structured",
+    "case_id": "c007",
+    "type": "single_hop",
+    "completeness": 0.0,
+    "faithfulness": null
+  },
+  "s017": {
+    "method": "llm_structured",
+    "case_id": "c018",
+    "type": "method",
+    "completeness": 0.0,
+    "faithfulness": null
+  },
+  "s018": {
+    "method": "rag_k18",
+    "case_id": "c007",
+    "type": "single_hop",
+    "completeness": 1.0,
+    "faithfulness": 1.0
+  },
+  "s019": {
+    "method": "fewshot_3",
+    "case_id": "c021",
+    "type": "method",
+    "completeness": 1.0,
+    "faithfulness": 0.8889
+  },
+  "s020": {
+    "method": "fewshot_5",
+    "case_id": "c007",
+    "type": "single_hop",
+    "completeness": 1.0,
+    "faithfulness": 1.0
+  },
+  "s021": {
+    "method": "rag_k18",
+    "case_id": "c019",
+    "type": "method",
+    "completeness": 1.0,
+    "faithfulness": 1.0
+  },
+  "s022": {
+    "method": "agent",
+    "case_id": "c018",
+    "type": "method",
+    "completeness": 1.0,
+    "faithfulness": 1.0
+  },
+  "s023": {
+    "method": "llm_structured",
+    "case_id": "c028",
+    "type": "unanswerable",
+    "completeness": null,
+    "faithfulness": null
+  },
+  "s024": {
+    "method": "rag_0shot",
+    "case_id": "c021",
+    "type": "method",
+    "completeness": 1.0,
+    "faithfulness": 1.0
+  },
+  "s025": {
+    "method": "rag_0shot",
+    "case_id": "c025",
+    "type": "unanswerable",
+    "completeness": null,
+    "faithfulness": null
+  }
+}

@@ -1,0 +1,18 @@
+.env
+data/docs/
+data-new/
+storage/
+cache/
+results/*/raw.jsonl
+.superpowers/
+archive/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.vscode/
+
+docs/interview_deck/render/
+
+# 本地清理暂存目录
+_trash_*/

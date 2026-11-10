@@ -1,0 +1,1110 @@
+﻿sample_id,question,gold_answer,answer,citations,completeness_human,faithfulness_human,notes
+s001,What input features are used in the Mixture of Experts forecasting task?,"The input features are outside temperature, historical heat load, and four temporal encodings: sin(Month), cos(Month), sin(Hour), and cos(Hour).","The input features are outside temperature, historical heat load, and four temporal encodings: sin(Month), cos(Month), sin(Hour), and cos(Hour).","[C1] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.17: performance across datasets demonstrates the scalability of
+the approach to different building types and heat load regimes.
+In conclusion, the Mixture of Experts framework advances
+heat load forecasti
+[C2] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.14: Figure 13 presents the distribution of gating weights for the
+Low, Medium, and High experts across all buildings and
+datasets. Although the gating layer uses a continuous softmax
+function, the results
+[C3] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.12: expert specialization through gating. Across short and long
+horizons, the benefit of MoE is not confined to a single setup.
+Even in the few non-significant cases, the mean improve-
+ment remains positi
+[C4] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.18: [36] J. Sievers, T. Blank, and F. Simon, ‘‘Advancing accuracy in energy
+forecasting using mixture-of-experts and federated learning,’’ in
+Proceedings of the 15th ACM International Conference on Future
+[C5] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.6: Pedram Babakhaniet al.: An Explainable Transformer-based Mixture of Experts for Heat Load Forecasting
+B. FORECASTING TASK
+Given a multivariate time series{(x t ,y t )}T
+t=1 , wherex t ∈
+RC are input f
+[C6] Improving heat demand forecasting with feature reduction in an.pdf p.2: age the strengths of multiple techniques, improving performance on 
+complex tasks and creating versatile models. Hybrid models introduced 
+in Chung et al. (2022-05), Song et al. (2021) can extract spa",1,1,
+s002,Does adding occupancy data improve heating and electricity load forecasting in hotels? Give the reported NRMSE numbers.,"Yes, but only slightly overall. For the ED model, heating NRMSE improves from 4.91% to 4.90%, and electricity NRMSE improves from 7.20% to 7.07%.","Yes, slightly. Heating NRMSE fell from 4.91% to 4.90%, and electricity NRMSE fell from 7.20% to 7.07%.","[C1] Influence of occupancy data on heating and.pdf p.7: CISBAT 2025
+Journal of Physics: Conference Series 3140 (2025) 052023
+IOP Publishing
+doi:10.1088/1742-6596/3140/5/052023
+6
+inclusion of occupancy. In all cases, the 1-hour forecasts are closer to the a
+[C2] Influence of occupancy data on heating and.pdf p.5: With Occupancy 4.640 8.041 6.228 19.879 4.461 4.322 4.346 15.309
+Relative Difference 0.238 0.162 -1.314 3.182 0.382 -0.092 -0.412 2.565
+For the ED model, the average NRMSE across all heating datasets 
+[C3] Influence of occupancy data on heating and.pdf p.2: electricity forecasts are particularly useful for hotels, where combined heat and power (CHP)
+units are often installed. Accurate forecasts help optimize CHP unit control, increasing economic
+efficien
+[C4] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.13: Pedram Babakhaniet al.: An Explainable Transformer-based Mixture of Experts for Heat Load Forecasting
+TABLE 4.Comparison of forecasting performance across datasets. Rows indicate input window (IW), pr
+[C5] Imputing the long-term missing heating load data using a generative network.pdf p.14: temperature-related. Fig.  28 shows the comparison of NRMSE when 
+using different temperature variables to fill the missing heating load 
+data. The results indicate that using 𝑇𝑑𝑒𝑤 alongside other wea
+[C6] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.14: therefore not explainable. This paper investigated the explainability
+of time series heating load forecasts for two datasets, an multifamily
+residential building and a district heating network.
+Differ",1,1,
+s003,Which study reports the larger relative error reduction: the occupancy study's heating NRMSE change or the MoE study's NRMSE reduction on Demandlib? Give both figures.,"The MoE study reports the larger relative reduction: 24% NRMSE on Demandlib, versus a heating NRMSE change from 4.91% to 4.90% in the occupancy study.","1) Conclusion
+The MoE study reports the larger relative error reduction: 24% on Demandlib, versus a heating NRMSE change of only about 0.2% in the occupancy study.
+
+2) Explanation
+- Occupancy study (heating): average NRMSE is 4.91% without occupancy and 4.90% with it, i.e. a relative reduction of roughly 0.2% (about 0.01 percentage points).
+- Occupancy study (electricity): 7.20% without versus 7.07% with occupancy, a more noticeable but still small improvement.
+- MoE study: averaged over three input windows and three prediction horizons, NRMSE is reduced by 24% on Demandlib (13% on Green Fusion, 10% on Hotels).
+- Therefore 24% (MoE, Demandlib) far exceeds the ~0.2% heating NRMSE change from occupancy data.
+
+3) Evidence
+- [C1]: Heating NRMSE 4.91% without occupancy vs 4.90% with occupancy; electricity 7.20% vs 7.07%.
+- [C2]: MoE reduces NRMSE by 24%, 13%, and 10% on Demandlib, Green Fusion, and Hotels respectively.
+
+4) Assumptions & Scope
+- The occupancy figure is derived by comparing the two reported averages (0.01/4.91 ≈ 0.2%); the source does not state a relative percentage explicitly.
+- The MoE 24% is an average across three input windows and three prediction horizons, so it is not a single-configuration value.
+- The two studies use different datasets and baselines, so the comparison is indicative rather than like-for-like.
+
+5) Suggested Next Retrieval
+occupancy data heating load NRMSE relative improvement percentage; MoE Demandlib NRMSE reduction per input window prediction horizon","[C1] Influence of occupancy data on heating and.pdf p.5: With Occupancy 4.640 8.041 6.228 19.879 4.461 4.322 4.346 15.309
+Relative Difference 0.238 0.162 -1.314 3.182 0.382 -0.092 -0.412 2.565
+For the ED model, the average NRMSE across all heating datasets 
+[C2] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.1: benchmarked against four baselines (Informer, CNN-LSTM, LSTM, and PatchTST) across three datasets
+covering both synthetic and real-world conditions: Demandlib (synthetic archetypes), Green Fusion (mul
+[C3] Imputing the long-term missing heating load data using a generative network.pdf p.16: comparisons with other SOTAs such as Transformer and Informer, in 
+order to prove the effectiveness of our proposed approach. Compared to 
+the baseline models, our proposed method achieved the relativ
+[C4] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.12: Pedram Babakhaniet al.: An Explainable Transformer-based Mixture of Experts for Heat Load Forecasting
+FIGURE 12.Mean percentage improvement of the MoE over each baseline model across datasets and fore
+[C5] TCN-BiLSTM-CEAninterdisciplinaryapproachformissingenergydata.pdf p.12: interests or  personal  relationships  that  could  have  appeared  to  influence  
+the work  reported  in  this  paper.
+Acknowledgements
+This work  is  funded  by  the  German  Federal  Ministry  for
+[C6] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.10: A. Neubauer et al.
+Fig. 6. NRMSE and MAE as a function of lagged hour for different cases for the MFRB. Best value out of 5 trainings.
+Fig. 7. NRMSE and MAE as a function of lagged hour for different ",1,1,
+s004,What benefit did Deep SHAP based feature selection provide in the multi-step heating load forecasting study?,Deep SHAP based feature selection reduced training time by 3.98% and reduced NRMSE by 8.11%.,"1) Conclusion
+Based on the provided Context, the specific benefit of Deep SHAP–based feature selection in this multi-step heating load forecasting study is not directly stated. The Context describes the study's use of Deep SHAP for feature importance/explainability and evaluates feature selection by removing features, but it does not explicitly report a quantified benefit attributable to Deep SHAP–based feature selection.
+
+INSUFFICIENT_CONTEXT: The Context does not explicitly state the benefit that Deep SHAP–based feature selection provided in this multi-step heating load forecasting study.
+
+2) Explanation
+- The study uses Deep SHAP to determine SHAP values for LSTM-based models, and notes Deep SHAP showed good results with LSTM models [C3].
+- The study aims to determine whether feature selection methods for single-step forecasts differ from those for multi-step forecasts, and notes that single-step methods such as PFI, RFI, or Tree SHAP are commonly used [C6].
+- The study evaluates the influence of feature selection based on FI values by removing individual features and forecasting with the Encoder–Decoder model [C7].
+- A related cited study (van Zyl et al.) found that features selected by Deep SHAP improved model accuracy and reduced overfitting compared with Grad-CAM, achieving lower MAPE [C8]. However, this is evidence about a different study, not the benefit in the present multi-step heating load forecasting study.
+
+3) Evidence
+- [C3] Deep SHAP is used to determine SHAP values for LSTM models and showed good results with LSTM models.
+- [C6] The study investigates whether feature selection methods for single-step forecasts differ from those for multi-step forecasts; common single-step methods include PFI, RFI, and Tree SHAP.
+- [C7] Feature selection based on FI values is evaluated by removing individual features and forecasting with the Encoder–Decoder model.
+- [C8] In a cited related study, Deep SHAP–selected features improved accuracy and reduced overfitting versus Grad-CAM (MAPE 1.56% vs. 2.44%), but this is not stated as the benefit in the present study.
+
+4) Assumptions & Limitations
+- Assumption: The question refers to the study in the ""Explainable multi-step heating load forecasting Using SHAP values"" paper.
+- Limitation: The provided Context does not contain an explicit statement of the benefit of Deep SHAP–based feature selection in that study. The only quantified Deep SHAP feature-selection benefit appears in a cited third-party study [C8], so it cannot be attributed to the present study.
+
+5) Next Retrieval Suggestions
+- Search within the same PDF for terms such as: ""feature selection"", ""Deep SHAP feature selection"", ""FI"", ""model accuracy"", ""overfitting"", ""MAPE"", ""NRMSE"", ""Section 4.3"", ""removal of features"".
+- Retrieve pages around Section 4.3 (""Model accuracy depending on features"") and the results/discussion sections where feature removal and accuracy changes are reported.
+- Look for explicit comparisons between Deep SHAP–selected features and other feature-selection methods (e.g., PFI, RFI, Tree SHAP, Grad-CAM) within the same study.","[C1] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.1: Keywords:
+Multi-step load forecasting
+Explainable AI (XAI)
+SHAP values
+Encoder–Decoder model
+Attention mechanisms
+Feature selection
+A B S T R A C T
+The role of heating load forecasts in the energy tra
+[C2] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.16: analysis of grad-CAM and SHAP. Appl Energy 2024;353:122079. http://dx.
+doi.org/10.1016/j.apenergy.2023.122079, URL https://www.sciencedirect.com/
+science/article/pii/S0306261923014435.
+[19] Zhang Tian
+[C3] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.8: Deep LIFT multipliers 𝑚, which are interpreted as SHAP values, step
+by step through the network (Fig. 4). The SHAP value 𝜑𝑖(𝑓3, 𝑦) for the
+deep learning model or neuron 𝑓3 of the Deep SHAP (Eq. (13)) 
+[C4] Relationship betweenfeature importanceandbuildingcharacteristics for.pdf p.11: the heating load.
+4.5. Utilisation of the results for practical applications
+Based on the SHAP values, buildings can be classified according to
+their building characteristics solely based on the input
+[C5] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.14: The influence of the individual input hours and the features on the
+forecast could also be quantified using the local Deep SHAP values.
+It was observed that the input hours shortly before the forecast
+[C6] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.4: of an multifamily residential building (MFRB) and a district heating
+system (DHS), as both are presumed to have different inertias. Fur-
+thermore, the influence of future weather data, time features a
+[C7] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.12: in the NRMSE for the apartment and a 5.66% (Fig. 7) reduction for the
+DHS. Despite the greater proportion of past features contributing to the
+Deep SHAP FI for the DHS in comparison to the MFRB, the r
+[C8] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.3: methods for model explanation.
+The study by van Zyl et al. [18] presents a comparative analysis
+of Gradient-weighted Class Activation Mapping (Grad-CAM) and SHAP
+(with Deep SHAP explainer) for feature
+[C9] Explainable AI for cooling load prediction and heat flow estimation.pdf p.1: Explainable AI for
+cooling load prediction and heat flow estimation
+using SHAP values
+Alexander Neubauer 1, Stefan Brandt 1 und Martin Kriegel 1
+1Hermann-Rietschel-Institut, Technische Universität Ber
+[C10] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.9: A. Neubauer et al.
+Fig. 5. Process of data preprocessing, model training, load forecast and model explainability.
+3.3. Data preprocessing
+The complete train dataset (consisting of features and label) 
+[C11] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.4: tricity data from the Korea Power Exchange was used as data for a
+24-h load forecast. They introduced a new metric that includes 𝑅2
+and average absolute SHAP values and showed improved accuracy
+and pe
+[C12] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.14: detailed information about the importance of the input hours.
+4.6. Limitations
+By analysing various LH, the FI, the local SHAP values and the
+attention map, the study offers a comprehensive and versat
+[C13] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.7: values attribute the contribution of each feature to the forecast. It is
+thus possible to determine the extent to which the forecast value would
+be reduced in the absence of the feature. For instance,
+[C14] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.14: of 30.67% for the multifamily residential building and 3.32% for the
+district heating system.
+The feature importance methods and resulting feature selection sig-
+nificantly impact model accuracy. The 
+[C15] Operational regime dependence of model performance and feature.pdf p.20: ANN. This robust convergence indicates that feature importance derived 
+from mixed-regime operational data should be interpreted cautiously, as 
+apparent dominance may reflect correlation with unresol
+[C16] Operational regime dependence of model performance and feature.pdf p.3: network-based approaches have further improved prediction accuracy 
+for supercritical CO_2 power systems [16] . Dynamic neural networks 
+combined with deep learning have additionally been applied to m",0,0,
+s005,What input features are used in the Mixture of Experts forecasting task?,"The input features are outside temperature, historical heat load, and four temporal encodings: sin(Month), cos(Month), sin(Hour), and cos(Hour).","1) Conclusion (1–2 sentences)
+The Mixture of Experts forecasting task uses a multivariate input consisting of outside temperature, a historical heat load time series, and four temporal encodings (sin/cos of Month and sin/cos of Hour).
+
+2) Explanation
+- The forecasting task is defined over a multivariate time series where x_t ∈ R^C represents the input features and y_t is the heat load at time t; the model predicts y_{t+h} using a look-back window of w steps [C5].
+- Feature selection explicitly lists: outside temperature (T), historical heat load time series (Q̇), and four temporal encodings: sin(Month), cos(Month), sin(Hour), cos(Hour) [C5].
+- Pearson correlations between these input features and the target (Q̇) are analyzed, noting a strong negative correlation between outside temperature and heat load [C5].
+
+3) Evidence
+- [C5] Defines the forecasting task with input features x_t and specifies the selected features: outside temperature, historical heat load, and sin/cos Month and Hour encodings.
+- [C5] Notes the correlation analysis between input features and the target heat load.
+
+4) Assumptions & Scope
+- The answer is limited to the feature set described in [C5]; no additional features (e.g., weather variables like humidity, wind speed) are stated as used in this MoE task within the provided context.
+- The context does not specify the exact value of C (number of input channels) beyond the listed features.
+
+5) Suggested Next Retrieval
+- ""input window size w"", ""number of input channels C"", ""feature preprocessing/normalization"", ""Table 4 input windows"", ""Figure 6 Pearson correlation features""","[C1] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.17: performance across datasets demonstrates the scalability of
+the approach to different building types and heat load regimes.
+In conclusion, the Mixture of Experts framework advances
+heat load forecasti
+[C2] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.14: Figure 13 presents the distribution of gating weights for the
+Low, Medium, and High experts across all buildings and
+datasets. Although the gating layer uses a continuous softmax
+function, the results
+[C3] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.12: expert specialization through gating. Across short and long
+horizons, the benefit of MoE is not confined to a single setup.
+Even in the few non-significant cases, the mean improve-
+ment remains positi
+[C4] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.18: [36] J. Sievers, T. Blank, and F. Simon, ‘‘Advancing accuracy in energy
+forecasting using mixture-of-experts and federated learning,’’ in
+Proceedings of the 15th ACM International Conference on Future
+[C5] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.6: Pedram Babakhaniet al.: An Explainable Transformer-based Mixture of Experts for Heat Load Forecasting
+B. FORECASTING TASK
+Given a multivariate time series{(x t ,y t )}T
+t=1 , wherex t ∈
+RC are input f
+[C6] Improving heat demand forecasting with feature reduction in an.pdf p.2: age the strengths of multiple techniques, improving performance on 
+complex tasks and creating versatile models. Hybrid models introduced 
+in Chung et al. (2022-05), Song et al. (2021) can extract spa",1,1,
+s006,What benefit did Deep SHAP based feature selection provide in the multi-step heating load forecasting study?,Deep SHAP based feature selection reduced training time by 3.98% and reduced NRMSE by 8.11%.,"1) Conclusion
+INSUFFICIENT_CONTEXT: The question asks about a specific finding from a particular study (Deep SHAP–based feature selection in multi-step heating load forecasting), and I do not have reliable knowledge of that study's reported results.
+
+2) Explanation
+I cannot verify which study this refers to or what benefit it reported (e.g., reduced input dimensionality, improved accuracy, lower computational cost, better generalization). Answering would require citing the specific paper's results, which I cannot confirm from my own knowledge without risking fabrication.
+
+3) Confidence / Limits
+High confidence that I lack the specific evidence needed; no external retrieval is permitted, so I cannot confirm the study's reported benefit.",,0,0,
+s007,What benefit did Deep SHAP based feature selection provide in the multi-step heating load forecasting study?,Deep SHAP based feature selection reduced training time by 3.98% and reduced NRMSE by 8.11%.,"1) Conclusion (1–2 sentences)
+In the multi-step heating load forecasting study, Deep SHAP–based feature selection improved model accuracy and reduced overfitting, and it yielded the most suitable feature selection (alongside Tree SHAP), reducing NRMSE and computing time.
+
+2) Explanation
+- Deep SHAP–selected features produced higher accuracy and less overfitting than Grad-CAM–selected features in the cited comparative study (electricity load, multi-headed CNN) [C1].
+- Quantitatively, Deep SHAP features achieved an average MAPE of 1.56% versus 2.44% for Grad-CAM features [C1].
+- In the heating load study itself, applying feature selection reduced NRMSE for the multifamily residential building by 8.11% and computing time by 3.98% by removing the lowest-FI feature [C2].
+- Tree SHAP and Deep SHAP gave the most suitable feature selection, while Random Forest Importance performed poorly, suggesting SHAP-based methods are more robust for multi-step forecasts [C2].
+- Local Deep SHAP values also allowed quantification of the influence of individual input hours and features on the forecast [C2].
+
+3) Evidence
+- [C1] Deep SHAP feature selection led to improved model accuracy and less overfitting vs. Grad-CAM; MAPE 1.56% vs. 2.44%.
+- [C2] Feature selection reduced NRMSE by 8.11% and computing time by 3.98% for the multifamily building; Tree SHAP and Deep SHAP yielded the most suitable feature selection; SHAP methods may be more robust for multi-step forecasts.
+- [C2] Local Deep SHAP values quantified influence of individual input hours and features.
+
+4) Assumptions & Scope
+- The MAPE comparison (1.56% vs. 2.44%) comes from a cited external study on electricity load (van Zyl et al.), not the heating load datasets themselves [C1].
+- The NRMSE/computing-time reductions refer to the multifamily residential building case in the heating load study [C2].
+
+5) Suggested Next Retrieval
+- ""Deep SHAP feature selection NRMSE reduction multifamily building""
+- ""Tree SHAP vs Random Forest Importance feature selection heating load""
+- ""local Deep SHAP lagged hours attention weights heating load""
+- ""van Zyl Grad-CAM Deep SHAP MAPE comparison""","[C1] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.3: methods for model explanation.
+The study by van Zyl et al. [18] presents a comparative analysis
+of Gradient-weighted Class Activation Mapping (Grad-CAM) and SHAP
+(with Deep SHAP explainer) for feature
+[C2] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.14: of 30.67% for the multifamily residential building and 3.32% for the
+district heating system.
+The feature importance methods and resulting feature selection sig-
+nificantly impact model accuracy. The 
+[C3] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.1: Keywords:
+Multi-step load forecasting
+Explainable AI (XAI)
+SHAP values
+Encoder–Decoder model
+Attention mechanisms
+Feature selection
+A B S T R A C T
+The role of heating load forecasts in the energy tra
+[C4] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.4: FI has not been investigated, and its impact on feature selection remains
+unclear. In addition, previous work lacks a comprehensive analysis
+of the relationship between attention weights, local SHAP v
+[C5] Relationship betweenfeature importanceandbuildingcharacteristics for.pdf p.11: heating load prediction in most variants. Compared to 𝐼sol,so and occu-
+pancy, the 𝑇out probably has the highest prediction accuracy. If future
+features with a prediction error are used to predict the
+[C6] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.2: A. Neubauer et al.
+NRMSE. The utilisation of local Deep SHAP values enables the visualisation of the influence of past input hours
+and individual features. By mapping temporal attention, it was possib",1,1,
+s008,Which refrigerant is used in the heat pump model in HeatShift-HP?,The corpus does not state a refrigerant; the paper describes a generic air-to-water heat pump without naming the working fluid.,"1) Conclusion
+INSUFFICIENT_CONTEXT: The provided context does not state which refrigerant is used in the HeatShift-HP heat pump model.
+
+2) Explanation
+- [C2] describes the heat pump model as ""CarnotWithLosses,"" a Carnot-based grey-box model with refrigerant inertia and evaporator-frosting effects.
+- However, no specific refrigerant (e.g., R32, R290, R410A) is named in any of the provided excerpts.
+- [C1] only describes the framework as coupling a ""generic air-to-water heat pump"" without specifying the working fluid.
+
+3) Evidence
+- [C2]: Heat pump modelled using CarnotWithLosses, a Carnot-based grey-box model with refrigerant inertia and frosting effects — but no refrigerant type is given.
+- [C1]: Framework couples a ""generic air-to-water heat pump"" — refrigerant not specified.
+
+4) Assumptions & Scope
+- The refrigerant may be defined in sections of the paper not included in the provided context (e.g., model parameter tables or appendices).
+
+5) Suggested Next Retrieval
+Search terms: ""HeatShift-HP refrigerant"", ""CarnotWithLosses working fluid R290 R32"", ""Heat pump model refrigerant charge parameter table"", ""Section 2.2.2 heat pump model refrigerant type"".","[C1] HeatShift-HP A Techno-Economic framework for assessing heat pump load.pdf p.1: tic tariﬀs remains unclear. This paper introduces HeatShift-HP, an open-source Python/Modelica co-simulation 
+workﬂow. The framework couples a generic air-to-water heat pump and a stratiﬁed storage ta
+[C2] HeatShift-HP A Techno-Economic framework for assessing heat pump load.pdf p.5: outputs, together with the condenser heat ﬂow ̇𝑄cond and electrical 
+power 𝑃el used for metric and cost evaluation. The interaction between 
+these FMU signals and the Python environment is detailed in
+[C3] Economic viability of low- and ultra-low-temperature district heating under.pdf p.7: ∙ Air Source Heat Pump (ASHP),
+∙ Ground Source Heat Pump (GSHP) with shallow collectors,
+∙ Ground Source Heat Pump (GSHP) with boreholes,
+∙ Wastewater Source Heat Pump (WWSHP),
+∙ Power-to-Heat (P2H) p
+[C4] HeatShift-HP A Techno-Economic framework for assessing heat pump load.pdf p.10: as with recent ﬁeld measurements from German residential air-source 
+heat pump systems reporting a mean annual SPF of 3.4 and a range from 
+2.6 to 4.9 [54].
+The Carnot-with-losses eﬃciency  and frosti
+[C5] HeatShift-HP A Techno-Economic framework for assessing heat pump load.pdf p.17: the editorial decision-making or peer-review process. The authors de-
+clare no other competing interests. 
+Acknowledgements
+This work is funded by the German Federal Ministry for Economic 
+Aﬀairs and 
+[C6] Automated building energy modeling for energy.pdf p.12: user-defined parameters: 200,000 W capacity and 3.5 COP. 
+Additional properties, including the minimum part load ratio 
+and sizing factor, were set based on standard defaults, and the 
+ASHP was connec",1,1,
+s009,What CO2 price for 2030 is assumed in the district heating economic analysis?,The corpus does not report a 2030 CO2 price assumption.,"1) Conclusion
+INSUFFICIENT_CONTEXT: The provided context does not state a CO2 price for 2030 used in the district heating economic analysis.
+
+2) Explanation
+- The context includes cost-related discussion (annualized investment costs, fixed O&M, 20-year observation period) but does not mention CO2 price assumptions [C4].
+- Scenario descriptions cover heat demand, network scale, and HT demand shares, but no CO2 price parameter is listed [C6].
+- Cost data are referenced for central heat generation plants, but the excerpt does not show the CO2 price value [C13].
+
+3) Evidence
+- [C4] Mentions annualized investment costs, fixed O&M, and a 20-year observation period; no CO2 price stated.
+- [C6] Describes scenario variations (heat demand, network scale, HT demand share); no CO2 price stated.
+- [C13] Begins a cost data table for central heat generation plants; no CO2 price value visible.
+
+4) Assumptions & Limitations
+- Assumption: The CO2 price may appear in a full cost-assumptions table or methodology section not included in the provided excerpts.
+- Limitation: Only the supplied context was used; no external inference about the CO2 price was made.
+
+5) Next Retrieval Suggestions
+- Search within the same PDF for: “CO2 price”, “CO₂ price”, “carbon price”, “emission price”, “2030”, “cost assumptions”, “fuel price”, “gas price”, “CO2 cost”.","[C1] Economic viability of low- and ultra-low-temperature district heating under.pdf p.20: 2021.120520.
+[6] Pusat S, Erdem HH. Techno-economic model for district heating systems. Energy 
+Build 2014;72:177–85. http://dx.doi.org/10.1016/j.enbuild.2013.12.051.
+[7] Guelpa E, Capone M, Sciacovel
+[C2] Economic viability of low- and ultra-low-temperature district heating under.pdf p.1: district heating systems.
+1. Introduction
+District heating is expected to play an important role in the im-
+plementation of future sustainable energy systems [1]. Compared to 
+individual apartment-lev
+[C3] Economic viability of low- and ultra-low-temperature district heating under.pdf p.2: S. Ni et al.
+0.2 MWh/(m yr) to over 2.0 MWh/(m yr) [10–17]. This wide range 
+poses challenges for assessing the economic viability of DHS in new 
+projects during early planning phases, particularly in
+[C4] Economic viability of low- and ultra-low-temperature district heating under.pdf p.7: costs include annualized investment costs as well as fixed operation 
+and maintenance costs, calculated over a 20-year observation period 
+based on [43]. The assessment compares heat-supply costs at d
+[C5] Economic viability of low- and ultra-low-temperature district heating under.pdf p.1: The results show that linear heat density and temperature-related parameters are the dominant drivers 
+of economic viability for centralized heat supply systems. Under the investigated case-study cond
+[C6] Economic viability of low- and ultra-low-temperature district heating under.pdf p.6: to newly planned buildings and uncertainties regarding the network 
+connection rate in the district, the total heat demand and the heat 
+demand density of the area may change. Total heat demand levels
+[C7] Economic viability of low- and ultra-low-temperature district heating under.pdf p.20: of heating systems to enable 4th generation district heating: A review. Energy 
+2022;248:123529. http://dx.doi.org/10.1016/j.energy.2022.123529.
+[19] Kök A, Billerbeck A, Manz P, Kranzl L. Achieving c
+[C8] Economic viability of low- and ultra-low-temperature district heating under.pdf p.14: S. Ni et al.
+Fig. 14. Central supply temperature, network heat losses, and pump electricity consumption (shown as a percentage of total heat demand) in Scenario III.
+Fig. 15. Share of cases in which t
+[C9] HeatShift-HP A Techno-Economic framework for assessing heat pump load.pdf p.1: low-temperature system design minimises absolute heat costs, whereas the incremental value of price-based 
+control depends primarily on suﬃcient  storage, moderate control actions, and retail tariﬀs w
+[C10] Economic viability of low- and ultra-low-temperature district heating under.pdf p.5: 𝑇source, respectively. A temperature difference of 𝛥𝑇HE = 2 K at the 
+heat exchanger is assumed.
+3. Case study
+3.1. Case study area
+Within the research project Suburbane Wärmewende (SubWW) [40], 
+the 
+[C11] Economic viability of low- and ultra-low-temperature district heating under.pdf p.6: parameters are assumed for the calculation:
+∙ design outdoor temperature: 𝑇out,min = −12 ◦C;
+∙ heating-limit outdoor temperature: 𝑇out,max = 20 ◦C;
+∙ room temperature: 𝑇𝑅 = 20 ◦C;
+∙ radiator exponent:
+[C12] HeatShift-HP A Techno-Economic framework for assessing heat pump load.pdf p.9: components) are ﬁxed at the reference values described in Section 2.2.
+Crossing all levels in Table 3 yields 576 cases: 3 tariﬀ/location con-
+texts × 4 tank sizes × 3 temperature levels × 2 HP oversiz
+[C13] Economic viability of low- and ultra-low-temperature district heating under.pdf p.9: S. Ni et al.
+Table 3
+Cost data for central heat generation plants [43].
+ Technology Capacity Fixed annuity cost Lifetime 
+ kW €/(kW yr) yr  
+ 
+ASHP
+10 171.71 18  
+ 20 135.53 18  
+ 50 111.06 18  
+ 100 
+[C14] HeatShift-HP A Techno-Economic framework for assessing heat pump load.pdf p.3: mal storage in hydronic heating systems is both more widespread in 
+the existing building stock and available whenever heating is operat-
+ing. Many studies evaluate ﬂexibility under simpliﬁed price si
+[C15] HeatShift-HP A Techno-Economic framework for assessing heat pump load.pdf p.8: period deﬁnition, the area-speciﬁc space-heating demand amounts to 
+43.8 kWh m−2 in Chicago and 36.0 kWh m−2 in Berlin, while the peak spe-
+ciﬁc heating loads are 37.3 W m−2 and 28.5 W m−2, respective",1,1,
+s010,Does adding occupancy data improve heating and electricity load forecasting in hotels? Give the reported NRMSE numbers.,"Yes, but only slightly overall. For the ED model, heating NRMSE improves from 4.91% to 4.90%, and electricity NRMSE improves from 7.20% to 7.07%.","1) Conclusion
+Yes, but only marginally. Adding occupancy data slightly improved both heating and electricity load forecasting in hotels, with a more noticeable benefit for electricity.
+
+2) Explanation
+- Heating forecasts: average NRMSE decreased from 4.91% to 4.90% with occupancy data.
+- Electricity forecasts: average NRMSE decreased from 7.20% to 7.07% with occupancy data.
+- The effect of occupancy was context dependent and stronger when time features were excluded.
+- The reported means are averaged across configurations with and without time features.
+
+3) Evidence
+- [C1]: Inclusion of occupancy reduced average NRMSE for heating from 4.91% to 4.90% and for electricity from 7.20% to 7.07%.
+- [C2]: Same figures confirmed — heating 4.91% without vs 4.90% with occupancy; electricity 7.20% without vs 7.07% with occupancy; benefit more noticeable for electricity.
+
+4) Assumptions & Scope
+- Results are based on LSTM-based ED and LSTM models applied to real data from two hotels with different usage patterns.
+- NRMSE values are averages across both configurations (with and without time features).
+
+5) Suggested Next Retrieval
+hotel occupancy LSTM heating electricity load forecasting NRMSE time features context dependent","[C1] Influence of occupancy data on heating and.pdf p.7: CISBAT 2025
+Journal of Physics: Conference Series 3140 (2025) 052023
+IOP Publishing
+doi:10.1088/1742-6596/3140/5/052023
+6
+inclusion of occupancy. In all cases, the 1-hour forecasts are closer to the a
+[C2] Influence of occupancy data on heating and.pdf p.5: With Occupancy 4.640 8.041 6.228 19.879 4.461 4.322 4.346 15.309
+Relative Difference 0.238 0.162 -1.314 3.182 0.382 -0.092 -0.412 2.565
+For the ED model, the average NRMSE across all heating datasets 
+[C3] Influence of occupancy data on heating and.pdf p.2: electricity forecasts are particularly useful for hotels, where combined heat and power (CHP)
+units are often installed. Accurate forecasts help optimize CHP unit control, increasing economic
+efficien
+[C4] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.13: Pedram Babakhaniet al.: An Explainable Transformer-based Mixture of Experts for Heat Load Forecasting
+TABLE 4.Comparison of forecasting performance across datasets. Rows indicate input window (IW), pr
+[C5] Imputing the long-term missing heating load data using a generative network.pdf p.14: temperature-related. Fig.  28 shows the comparison of NRMSE when 
+using different temperature variables to fill the missing heating load 
+data. The results indicate that using 𝑇𝑑𝑒𝑤 alongside other wea
+[C6] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.14: therefore not explainable. This paper investigated the explainability
+of time series heating load forecasts for two datasets, an multifamily
+residential building and a district heating network.
+Differ",1,1,
+s011,What three stages does the Data2BEM workflow integrate?,"It integrates information extraction, model generation, and data-driven calibration.","1) Conclusion
+The context does not clearly name the three stages. It only states that Data2BEM uses a structured workflow decomposition of 4 stages, 14 tasks, and 32 subtasks.
+
+2) Explanation
+- [C1] describes a logically structured workflow decomposition into 4 stages, 14 tasks, and 32 subtasks, not three stages.
+- [C1] mentions calibration and scenario evaluation as parts of the workflow, but does not present a clean three-stage list.
+- [C2] refers to setup, iterative parameter tuning/calibration, and retrofit evaluation as manual modeling steps, but this is a description of human practice, not an explicit Data2BEM three-stage definition.
+- [C4] describes three core libraries (algorithm, model, tool), which are knowledge-base components, not workflow stages.
+
+3) Evidence
+- [C1]: Data2BEM introduces a workflow decomposition of 4 stages, 14 tasks, and 32 subtasks.
+- [C2]: Human modelers perform setup, calibration, and retrofit evaluation manually.
+- [C4]: The knowledge base is structured into three core libraries: algorithm, model, and tool.
+
+4) Assumptions & Scope
+- The question assumes a three-stage structure, but the provided context indicates four stages.
+- No source in the context explicitly lists the three stages as asked.
+
+5) Suggested Next Retrieval
+Data2BEM workflow stages tasks subtasks decomposition four stages information extraction model generation calibration scenario evaluation","[C1] Automated building energy modeling for energy.pdf p.3: tion, calibration, and scenario evaluation to enable informed deci-
+sion-making. When tools operate only on isolated stages, practi-
+tioners must manually integrate outputs, often relying on expert 
+k
+[C2] Automated building energy modeling for energy.pdf p.14: reference source documents and input each parameter manu-
+ally. Following the initial setup, they engaged in iterative param-
+eter tuning, comparing simulated results with measured data to 
+adjust var
+[C3] Influence of occupancy data on heating and.pdf p.4: CISBAT 2025
+Journal of Physics: Conference Series 3140 (2025) 052023
+IOP Publishing
+doi:10.1088/1742-6596/3140/5/052023
+3
+is a framework that uses two LSTM networks for both the encoder and the decode
+[C4] Automated building energy modeling for energy.pdf p.21: terfaces (APIs). These APIs provide integration between the agents and the tools required for the energy model. The knowledge 
+base is structured into three core libraries: the algorithm library, the 
+[C5] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.5: all datasets. We adoptk= 3for the main model, and provide
+a detailed quantitative comparison ofk= 2,k= 3, andk= 5
+(MAE as well as NRMSE and sMAPE) in section VI-G.
+FIGURE 5.Building-to-expert assignme
+[C6] TCN-BiLSTM-CEAninterdisciplinaryapproachformissingenergydata.pdf p.3: tor will  be  further  introduced  in  Sections 2.1.1  and 2.1.2 respectively. In  
+order to  adapt  the  network  to  process  energy  data  in  the  form  of  time  se -
+ries, the  convolutional  la",0,0,
+s012,"Which study addresses network-level economics of heat supply, and which addresses building-level heat pump load shifting?","The district heating study addresses network-level economic viability, while HeatShift-HP addresses building-level heat pump load shifting under dynamic tariffs.","1) Conclusion (1–2 sentences)
+The study addressing network-level economics of heat supply is Ni et al. on the economic viability of low- and ultra-low-temperature district heating [C4]; the study addressing building-level heat pump load shifting is the HeatShift-HP techno-economic framework [C1][C2].
+
+2) Explanation
+- Network-level economics: The Ni et al. study evaluates LTDH, ULTDH, and decentralized heat supply from a district-level perspective, analyzing economic viability and system performance under varying boundary conditions (renovation, heat demand growth, network penetration, distribution network scale) [C4].
+- Building-level heat pump load shifting: HeatShift-HP is a techno-economic framework for assessing heat pump load shifting under dynamic tariffs and grid fees, focusing on building heating loads, thermal storage, and control strategies [C1][C2].
+
+3) Evidence
+- [C4] Conclusion section describes investigating economic viability and system performance of LTDH, ULTDH, and decentralized heat supply ""from a district-level perspective,"" with dependence on linear heat density, temperature levels, and distribution network heat losses — i.e., network-level economics.
+- [C1] Abstract/introduction of HeatShift-HP: open-source Python/Modelica co-simulation framework for heat pump load shifting under dynamic electricity tariffs and grid fees, with keywords including ""Load shifting,"" ""Thermal energy storage,"" and ""Building energy flexibility.""
+- [C2] Describes varying building-level design parameters (storage volumes, nominal system temperatures, control strategy) across 576 cases to assess economic load-shifting potential for residential heat pump systems.
+
+4) Assumptions & Scope
+- Assumes ""network-level economics of heat supply"" refers to district heating network economics (as in [C4]) and ""building-level heat pump load shifting"" refers to the HeatShift-HP framework [C1][C2].
+- No direct comparison of the two studies is provided in the context; the identification is based on each study's stated scope.
+
+5) Suggested Next Retrieval
+- ""district heating economic viability linear heat density"" (for Ni et al.)
+- ""HeatShift-HP load shifting dynamic tariff thermal storage"" (for the building-level study)
+- ""central hot-water storage techno-economic heat pump flexibility""","[C1] HeatShift-HP A Techno-Economic framework for assessing heat pump load.pdf p.1: Contents lists available at ScienceDirect
+Energy & Buildings
+journal homepage: www.elsevier.com/locate/enbuild
+HeatShift-HP: A Techno-Economic framework for assessing heat pump load 
+shifting under dy
+[C2] HeatShift-HP A Techno-Economic framework for assessing heat pump load.pdf p.9: where ̇𝑄heat,max denotes the peak building heating load from the time 
+series. Larger storage volumes and lower nominal system temperatures 
+generally increase the shiftable load volume and improve th
+[C3] Influence of occupancy data on heating and.pdf p.1: Journal of Physics:
+Conference Series
+       
+PAPER • OPEN ACCESS
+Influence of occupancy data on heating and
+electricity load forecasting using machine learning
+To cite this article: Alexander Neubaue
+[C4] Economic viability of low- and ultra-low-temperature district heating under.pdf p.19: S. Ni et al.
+6. Conclusion
+This study investigated the economic viability and system perfor-
+mance of LTDH, ULTDH, and decentralized heat supply solutions from 
+a district-level perspective under vary
+[C5] Relationship betweenfeature importanceandbuildingcharacteristics for.pdf p.12: nal draft, Visualization, Validation, Software, Methodology, Investiga-
+tion, Conceptualization. Stefan Brandt: Writing – review & editing.
+Martin Kriegel: Supervision, Resources.
+Declaration of compe
+[C6] Imputing the long-term missing heating load data using a generative network.pdf p.20: j.energy.2021.122309.
+[27] Zhou Yong, Li Xiang, Liu Yanfeng, Wei Renshu. Transfer learning-based adaptive 
+recursive neural network for short-term non-stationary building heating load 
+prediction. J B",1,1,
+s013,What benefit did Deep SHAP based feature selection provide in the multi-step heating load forecasting study?,Deep SHAP based feature selection reduced training time by 3.98% and reduced NRMSE by 8.11%.,"1) Conclusion
+Deep SHAP-based feature selection improved model accuracy and reduced overfitting compared with Grad-CAM, and SHAP-based methods proved more robust for identifying important features in multi-step heating load forecasting.
+
+2) Explanation
+- In the cited comparative study, Deep SHAP-selected features gave a lower average MAPE (1.56%) than Grad-CAM-selected features (2.44%), with improved accuracy and less overfitting.
+- Grad-CAM was computationally faster (59 s vs. 93 min), so the benefit was accuracy, not speed.
+- In the present study, applying feature selection reduced NRMSE by 8.11% for the multifamily residential building and cut computing time by 3.98% by removing the lowest-importance feature.
+- Tree SHAP and Deep SHAP yielded the most suitable feature selection, whereas Random Forest Importance performed poorly, suggesting SHAP methods are more robust for multi-step forecasts.
+- Local Deep SHAP values also allowed quantification of the influence of individual input hours and features on the forecast.
+
+3) Evidence
+- [C1]: Deep SHAP features achieved MAPE 1.56% vs. 2.44% for Grad-CAM, with improved accuracy and less overfitting.
+- [C2]: Feature selection reduced NRMSE by 8.11% and computing time by 3.98%; SHAP methods more robust than RFI.
+- [C6]: Local Deep SHAP values visualise the influence of past input hours and individual features.
+
+4) Assumptions & Scope
+- The MAPE comparison comes from the referenced study (van Zyl et al.) using a multi-headed CNN for electricity load, not from the heating load experiments themselves.
+- The NRMSE and computing-time figures refer to the multifamily residential building case in this study.
+
+5) Suggested Next Retrieval
+Deep SHAP feature selection heating load Encoder-Decoder NRMSE reduction overfitting MAPE comparison Grad-CAM","[C1] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.3: methods for model explanation.
+The study by van Zyl et al. [18] presents a comparative analysis
+of Gradient-weighted Class Activation Mapping (Grad-CAM) and SHAP
+(with Deep SHAP explainer) for feature
+[C2] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.14: of 30.67% for the multifamily residential building and 3.32% for the
+district heating system.
+The feature importance methods and resulting feature selection sig-
+nificantly impact model accuracy. The 
+[C3] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.1: Keywords:
+Multi-step load forecasting
+Explainable AI (XAI)
+SHAP values
+Encoder–Decoder model
+Attention mechanisms
+Feature selection
+A B S T R A C T
+The role of heating load forecasts in the energy tra
+[C4] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.4: FI has not been investigated, and its impact on feature selection remains
+unclear. In addition, previous work lacks a comprehensive analysis
+of the relationship between attention weights, local SHAP v
+[C5] Relationship betweenfeature importanceandbuildingcharacteristics for.pdf p.11: heating load prediction in most variants. Compared to 𝐼sol,so and occu-
+pancy, the 𝑇out probably has the highest prediction accuracy. If future
+features with a prediction error are used to predict the
+[C6] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.2: A. Neubauer et al.
+NRMSE. The utilisation of local Deep SHAP values enables the visualisation of the influence of past input hours
+and individual features. By mapping temporal attention, it was possib",1,1,
+s014,"Which study reports a reduction in modeling time, and which evaluates the economic viability of heat supply?","The Data2BEM study reports a modeling-time reduction of over 90%, while the district heating study evaluates economic viability under different demand and network conditions.","1) Conclusion
+I don't have enough information to identify either study. I cannot name a specific study that reports a reduction in modeling time, nor one that evaluates the economic viability of heat supply.
+
+2) Explanation
+The question asks me to match two distinct research findings to specific studies, but it provides no titles, authors, years, or other identifying details. Without that information—and without being able to consult a source set—I cannot reliably attribute these findings to particular studies. Guessing would risk fabricating citations.
+
+3) Confidence / Limits
+INSUFFICIENT_CONTEXT: The question references specific studies by their findings only, with no identifying details, and answering would require evidence (titles, authors, or a document set) that I do not have.",,0,0,
+s015,Do the occupancy study and the ED-LSTM heat demand study both use an LSTM-based encoder-decoder model?,"Yes. The occupancy study reports averages based on an LSTM-based encoder-decoder model, and the ED-LSTM study proposes an Encoder-Decoder LSTM architecture.","1) Conclusion (1–2 sentences)
+Yes — both studies use an LSTM-based encoder-decoder (ED) model, though the occupancy study applies it alongside a plain LSTM for comparison, while the heat demand study uses the ED-LSTM as its core architecture.
+
+2) Explanation
+- The occupancy study explicitly applies ""Long short-term memory (LSTM) and encoder-decoder (ED) models"" and reports results based on the ""LSTM-based encoder-decoder (ED) model"" [C1][C6].
+- It describes the ED model as ""a framework that uses two LSTM networks for both the encoder and the decoder"" (LSTM-based Seq2Seq) [C13].
+- The heat demand study proposes an ""Encoder–Decoder (ED) Long Short-Term Memory (LSTM) architecture"" emphasizing input feature reduction [C2][C4].
+- It explicitly states it ""Applies an Encoder–Decoder LSTM"" to capture temporal dynamics and long-range dependencies [C5], and refers to its ""ED–LSTM architecture"" in the conclusions [C17].
+
+3) Evidence
+- [C1] Occupancy study applies LSTM and encoder-decoder (ED) models; averages based on the LSTM-based encoder-decoder model.
+- [C6] Averages based on the LSTM-based encoder-decoder (ED) model, which outperformed plain LSTM.
+- [C13] ED is a Seq2Seq framework using two LSTM networks for encoder and decoder.
+- [C2] Heat demand study proposes an Encoder–Decoder (ED) LSTM architecture with feature reduction.
+- [C4] Describes the ED-LSTM architecture and its benchmarking against a baseline two-layer LSTM.
+- [C5] Study applies an Encoder–Decoder LSTM as its forecasting architecture.
+- [C17] Conclusions refer to the ED–LSTM architecture for 24-h-ahead heat demand forecasts.
+
+4) Assumptions & Scope
+- ""LSTM-based encoder-decoder"" is interpreted as an encoder-decoder architecture whose encoder and decoder are built from LSTM cells (Seq2Seq), consistent with both sources.
+- Scope limited to the two named studies; other ED/LSTM works in the context (e.g., [C12], [C14]) are not part of the comparison.
+
+5) Suggested Next Retrieval
+- ""encoder-decoder LSTM architecture hotel occupancy forecasting""
+- ""ED-LSTM feature reduction district heating network""
+- ""seq2seq LSTM encoder decoder heat demand""","[C1] Influence of occupancy data on heating and.pdf p.2: for optimising combined heat and power (CHP) systems and enabling grid responsive control
+strategies. While previous research has investigated the influence of occupancy information
+in energy forecast
+[C2] Improving heat demand forecasting with feature reduction in an.pdf p.1: Contents lists available at ScienceDirect
+Energy Reports
+journal homepage: www.elsevier.com/locate/egyr  
+Research paper
+Improving heat demand forecasting with feature reduction in an 
+Encoder–Decoder
+[C3] Influence of occupancy data on heating and.pdf p.5: during the test period for eight datasets from the two hotels. A maximum of 50 epochs were
+conducted for both the LSTM and the LSTM-based ED model, after which the model with the
+lowest validation MSE
+[C4] Improving heat demand forecasting with feature reduction in an.pdf p.1: Encoder–Decoder (ED) Long Short-Term Memory (LSTM) architecture emphasizing input feature reduction to 
+enhance robustness and accuracy. Using an open-source smart meter dataset, the model is trained 
+[C5] Improving heat demand forecasting with feature reduction in an.pdf p.3: ity and computational burden, (iii) dependence on uncertain exogenous 
+forecasts, (iv) closed-source datasets that limit generalizability, and (v) 
+inconsistent reporting and validation practices. As 
+[C6] Influence of occupancy data on heating and.pdf p.2: forecasts from 7.20 % to 7.07 %. These averages are based on the LSTM-based encoder-decoder
+(ED) model, which consistently achieved lower forecast errors than LSTM. Both configurations
+with and withou
+[C7] Influence of occupancy data on heating and.pdf p.3: and expected occupancy for the corresponding forecast horizon. This allows the ED architecture
+to better model future patterns by using information that is available or predictable at the time
+of fore
+[C8] Influence of occupancy data on heating and.pdf p.3: MLPs or SVRs [6] in time-series energy forecasting, due to their ability to model temporal
+dependencies. In this paper, we study the effect of occupancy on heating and electricity load
+forecasts using
+[C9] Influence of occupancy data on heating and.pdf p.3: temporal dependencies in high-resolution time-series data. This study assumes that including
+occupancy data will have a quantifiable effect on load forecasting depending on usage type.
+2. Methods
+Firs
+[C10] Influence of occupancy data on heating and.pdf p.5: CISBAT 2025
+Journal of Physics: Conference Series 3140 (2025) 052023
+IOP Publishing
+doi:10.1088/1742-6596/3140/5/052023
+4
+of occupancy varies across datasets, ranging from 3 .0 % to 14.7 %, with notab
+[C11] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.18: and M. Kriegel, ‘‘Influence of occupancy data on heating and electricity
+load forecasting using machine learning,’’Journal of Physics: Conference
+Series, vol. 3140, no. 5, p. 052023, nov 2025. [Online
+[C12] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.9: in Section 4.4. In Section 4.5, the attention maps of the ED models
+are presented and discussed. Finally, the limitations of the study are
+explained in Section 4.6.
+4.1. Heating load forecast
+The heat
+[C13] Influence of occupancy data on heating and.pdf p.4: CISBAT 2025
+Journal of Physics: Conference Series 3140 (2025) 052023
+IOP Publishing
+doi:10.1088/1742-6596/3140/5/052023
+3
+is a framework that uses two LSTM networks for both the encoder and the decode
+[C14] Explainable multi-step heating load forecasting Using SHAP values and.pdf p.2: maps, as well as XAI for time series. Each subsection is summarised in
+Table 1 and 2.
+1.1.1. Encoder–decoder models and attention maps
+The use of sequence-to-sequence (Seq2Seq) models for multi-step
+f
+[C15] Influence of occupancy data on heating and.pdf p.7: occupancy was stronger when time features were excluded and was generally more beneficial
+in cases where occupancy showed high FI. These results suggest that occupancy should not be
+included by defaul
+[C16] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.7: Pedram Babakhaniet al.: An Explainable Transformer-based Mixture of Experts for Heat Load Forecasting
+F. BASELINE MODELS FOR COMPARISON
+To evaluate the effectiveness of the proposed MoE approach,
+we c
+[C17] Improving heat demand forecasting with feature reduction in an.pdf p.11: tigated to quantify their impact on 24-h-ahead heat demand forecasts in 
+DHNs using an open-source dataset and an ED–LSTM architecture. The 
+findings indicate that over-manipulation of inputs and the 
+[C18] Improving heat demand forecasting with feature reduction in an.pdf p.10: A. Darbandi et al.
+Fig. 6. Heat-demand predictions for representative winter, summer, and shoulder days.
+Table 8
+Comparing the accuracy of ED-LSTM to other methods.
+ This Study (𝐼𝐹 𝑆3) SARIMAX SVR 2-l",1,1,
+s016,What input features are used in the Mixture of Experts forecasting task?,"The input features are outside temperature, historical heat load, and four temporal encodings: sin(Month), cos(Month), sin(Hour), and cos(Hour).","1) Conclusion  
+The Mixture of Experts (MoE) forecasting task typically uses a set of time-series input features such as historical load/demand values, calendar/time variables, weather variables, and sometimes lagged or exogenous signals, depending on the specific implementation.
+
+2) Explanation  
+- Historical target series: past values of the variable being forecast (e.g., load, price, demand), often as lagged features or rolling windows.  
+- Calendar/time features: hour of day, day of week, month, holiday indicators, and seasonal encodings.  
+- Weather features: temperature, humidity, wind speed, and derived variables such as heating/cooling degree days, when forecasting energy demand.  
+- Exogenous variables: economic indicators, occupancy, production schedules, or other domain-specific drivers.  
+- Lagged exogenous features: past values of weather or other external variables to capture delayed effects.  
+- Expert-specific or gating features: in MoE architectures, the same input feature vector is often used both by the gating network and by the expert networks, though some designs use reduced or transformed feature subsets for gating.
+
+3) Evidence  
+No external context or retrieval was provided. The answer is based on general knowledge of MoE forecasting architectures in building energy and time-series forecasting literature.
+
+4) Assumptions & Scope  
+- Assumes the question refers to a typical building energy or time-series MoE forecasting model.  
+- Exact feature sets vary by paper, dataset, and domain; without the specific model description, the list is representative rather than definitive.  
+- Does not cover image, text, or multimodal MoE forecasting tasks.
+
+5) Suggested Next Retrieval  
+Retrieve the specific MoE forecasting paper or model documentation to confirm the exact feature list, including whether gating uses the full feature set or a subset, and whether lag/rolling-window features are included.",,0,0,
+s017,How does the UVC versus HEPA study estimate particle residence times and irradiation dosages?,It uses computational fluid dynamics (CFD) simulations to determine particle residence times and irradiation dosages inside the UVC chamber.,"1) Conclusion (1-2 sentences)
+I don't have reliable knowledge of a specific ""UVC versus HEPA study"" that estimates particle residence times and irradiation dosages, so I can't describe its methods without risking fabrication.
+
+2) Explanation (bullet points)
+- I cannot identify a single canonical study by that name; multiple papers compare UVC (ultraviolet-C) air disinfection with HEPA filtration, and their methods differ.
+- In general, UVC dosage is estimated as dose = irradiance × residence time (with corrections for irradiance distribution, air velocity, and particle/droplet shielding), while residence time is often derived from chamber volume divided by airflow rate (or from CFD/tracer-decay measurements).
+- HEPA comparisons typically use single-pass removal efficiency and clean air delivery rate (CADR) rather than a ""dose,"" so the two are not directly equivalent.
+- Without the specific paper, I can't state its exact assumptions (e.g., well-mixed vs. plug-flow, UV reflectivity, lamp aging, particle size distribution).
+
+3) Evidence
+- None available from my own knowledge that specifically matches this study; providing numbers or formulas attributed to it would be speculative.
+
+4) Assumptions & Scope
+- Assumed the question refers to an in-duct or room-scale air disinfection comparison study; scope limited to general HVAC/UV disinfection principles, not a specific publication.
+
+5) Suggested Next Retrieval
+- Retrieve the specific paper (title, authors, journal) and its Methods section, focusing on: airflow rate and chamber geometry (residence time), UV lamp irradiance/fluence modeling, particle size bins, and how HEPA efficiency/CADR was computed for comparison.
+
+INSUFFICIENT_CONTEXT: No specific ""UVC versus HEPA study"" is identified, and I cannot verify its residence-time or dosage estimation methods without the source document.",,0,0,
+s018,What input features are used in the Mixture of Experts forecasting task?,"The input features are outside temperature, historical heat load, and four temporal encodings: sin(Month), cos(Month), sin(Hour), and cos(Hour).","1) Conclusion (1–2 sentences)
+The MoE forecasting task uses outside temperature, historical heat load, and four temporal encodings (sin/cos of Month and Hour) as input features.
+
+2) Explanation
+- The forecasting task is defined over a multivariate time series where x_t ∈ R^C are input features and y_t is the heat load, predicting y_{t+h} from a look-back window of w steps [C14].
+- Feature selection explicitly lists: outside temperature (T), a historical time series of the heat load (Q̇), and four temporal encodings: sin(Month), cos(Month), sin(Hour), cos(Hour) [C14].
+- The feature-importance analysis (perturbation-based) confirms these same inputs: past heat load Q̇, outdoor temperature, and the temporal encodings sin(Hour), cos(Hour), sin(Month), cos(Month) [C8].
+- The approach is described as ""metadata-free,"" relying solely on data-driven consumption clustering without explicit building metadata [C2].
+
+3) Evidence
+- [C14] Feature selection section: outside temperature, historical heat load, and four temporal encodings (sin/cos Month, sin/cos Hour); defines the multivariate input x_t and look-back window formulation.
+- [C8] Feature importance section: importances computed for past heat load Q̇, outdoor temperature, and temporal encodings sin(Hour), cos(Hour), sin(Month), cos(Month).
+- [C2] Metadata-free approach relying solely on data-driven consumption clustering, without explicit building metadata.
+
+4) Assumptions & Scope
+- Assumes ""input features"" refers to the model's forecasting inputs (not clustering inputs); clustering uses annual mean heat load [C15].
+- The exact number of look-back steps (w) and specific window lengths are not detailed in the provided excerpts.
+
+5) Suggested Next Retrieval
+- ""look-back window length w"", ""input window sizes"", ""Table 4 forecasting configurations"", ""Pearson correlation Figure 6"", ""feature selection details"".","[C1] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.17: performance across datasets demonstrates the scalability of
+the approach to different building types and heat load regimes.
+In conclusion, the Mixture of Experts framework advances
+heat load forecasti
+[C2] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.2: each regime, a Transformer-based expert (Informer) is trained
+to capture regime-specific dynamics. A gating network then
+learns to assign adaptive weights to these experts at inference,
+producing a we
+[C3] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.2: Pedram Babakhaniet al.: An Explainable Transformer-based Mixture of Experts for Heat Load Forecasting
+FIGURE 1.Overview of the proposed explainable metadata-free Mixture of Experts framework for heat 
+[C4] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.14: Figure 13 presents the distribution of gating weights for the
+Low, Medium, and High experts across all buildings and
+datasets. Although the gating layer uses a continuous softmax
+function, the results
+[C5] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.12: expert specialization through gating. Across short and long
+horizons, the benefit of MoE is not confined to a single setup.
+Even in the few non-significant cases, the mean improve-
+ment remains positi
+[C6] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.17: Pedram Babakhaniet al.: An Explainable Transformer-based Mixture of Experts for Heat Load Forecasting
+lengths, gating variants) will help identify more princi-
+pled and potentially better-performing c
+[C7] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.18: [36] J. Sievers, T. Blank, and F. Simon, ‘‘Advancing accuracy in energy
+forecasting using mixture-of-experts and federated learning,’’ in
+Proceedings of the 15th ACM International Conference on Future
+[C8] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.16: Pedram Babakhaniet al.: An Explainable Transformer-based Mixture of Experts for Heat Load Forecasting
+ment distinct temporal reasoning strategies: the Low expert
+relies primarily on short-term history
+[C9] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.15: Pedram Babakhaniet al.: An Explainable Transformer-based Mixture of Experts for Heat Load Forecasting
+B. ATTENTION-BASED EXPLAINABILITY
+The attention surfaces in Figure 14 show how each expert
+process
+[C10] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.14: with the clustering results, where the experts were almost
+entirely assigned to their corresponding building regimes,
+indicating that the MoE gating mechanism selects regimes
+accurately. In the Green 
+[C11] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.3: the training process [29]. Broader studies from the cooling
+load domain emphasize that explainable design improves
+reliability under abnormal or extreme conditions, extending
+interpretability principl
+[C12] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.1: benchmarked against four baselines (Informer, CNN-LSTM, LSTM, and PatchTST) across three datasets
+covering both synthetic and real-world conditions: Demandlib (synthetic archetypes), Green Fusion (mul
+[C13] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.17: (heating, DHW, cooling, electricity) will better reflect
+integrated operation and reveal whether experts share or
+specialize across tasks.
+In summary, while the present study establishes the effec-
+ti
+[C14] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.6: Pedram Babakhaniet al.: An Explainable Transformer-based Mixture of Experts for Heat Load Forecasting
+B. FORECASTING TASK
+Given a multivariate time series{(x t ,y t )}T
+t=1 , wherex t ∈
+RC are input f
+[C15] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.5: sumption levels and trains specialized experts for each cluster.
+A gating mechanism then combines expert outputs adaptively
+during inference.
+A. EXPERT CLUSTERING
+We assign buildings to experts using 
+[C16] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.13: intensity, functional use, or building size. Each expert needs
+adequate and diverse samples, ideally tied to one or several
+buildings, so that capacity is used and learning remains stable.
+With two ex
+[C17] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.13: of MoE variants, showing thatk= 3consistently achieves
+the lowest overall errors across all datasets.
+VII. EXPLAINABILITY
+Explainability in this work does not rely on separate post-
+hoc Explainable AI
+[C18] Improving heat demand forecasting with feature reduction in an.pdf p.2: age the strengths of multiple techniques, improving performance on 
+complex tasks and creating versatile models. Hybrid models introduced 
+in Chung et al. (2022-05), Song et al. (2021) can extract spa",1,1,
+s019,How does the gas turbine study isolate steady-state operation?,It filters the data to a steady-state subset using a fuel flow rate threshold of 65 KPPH (about 8.19 kg/s).,"1) Conclusion
+The study isolates steady-state operation by applying a threshold-based filter on Fuel Flow Rate (FFR ≥ 65 KPPH, equivalent to 8.19 kg/s), excluding startup, shutdown, and low-load periods.
+
+2) Explanation
+- A physically motivated FFR threshold was used to separate sustained load-bearing operation from idle and transient conditions.
+- The 65 KPPH threshold was selected from a tested range of 50–75 KPPH; the 75 KPPH option was excluded from direct comparison due to a substantially smaller test set.
+- The filter removes periods marked by unstable combustion, reduced mass flow, and weak thermodynamic relationships between parameters and power output.
+- The same models were evaluated on both the original mixed-regime dataset and the steady-state filtered subset, enabling a paired-regime comparison.
+
+3) Evidence
+- [C5]: Steady-state filtered subset defined as Fuel Flow Rate ≥ 65 KPPH (8.19 kg/s).
+- [C6]: Threshold-based FFR filter applied to exclude startup, shutdown, and low-load periods; thresholds toward the upper end risk excluding genuine load-bearing operation.
+- [C3]: Candidate FFR thresholds of 50–75 KPPH tested; 65 KPPH selected, 75 KPPH excluded due to smaller test set.
+- [C1]: Paired-regime comparison design evaluating the same models on the same data before and after isolating steady-state operation.
+
+4) Assumptions & Scope
+- The isolation is purely data-filtering based (FFR threshold), not a physical state estimator.
+- Results are tied to this specific industrial gas turbine dataset (~two years of operational data).
+
+5) Suggested Next Retrieval
+gas turbine steady-state filtering fuel flow rate threshold transient exclusion idle operation","[C1] Operational regime dependence of model performance and feature.pdf p.2: ment. Together, these findings demonstrate that both model selection 
+and feature interpretation in gas turbine power prediction are funda -
+mentally regime-dependent, carrying direct implications for
+[C2] Operational regime dependence of model performance and feature.pdf p.1: transition. The ranking reverses when steady-state operation is isolated, with Linear Regression achieving the 
+lowest error of all four models (RMSE = 1.74 MW, versus 2.14 – 3.69 MW for the nonlinear
+[C3] Operational regime dependence of model performance and feature.pdf p.14: gas turbine power prediction but is contingent on the operating regime 
+represented in the data, with direct implications for model selection 
+where steady-state operation can be reliably isolated.
+A 
+[C4] Operational regime dependence of model performance and feature.pdf p.4: separated from steady-state operation [23] . Similarly, ANN-based heat- 
+rate prediction studies using industrial CCPP data have been limited to 
+comparatively short monitoring periods, without an exp
+[C5] Operational regime dependence of model performance and feature.pdf p.1: been widely applied to gas turbine power prediction, existing studies typically evaluate models over a single, 
+mixed operating regime and do not examine how feature importance and model rankings chan
+[C6] Operational regime dependence of model performance and feature.pdf p.7: overlaid on the time-series to examine their position relative to these 
+operating regions. All six thresholds fall within a narrow band relative to 
+the full operating range, consistently separating ",1,1,
+s020,What input features are used in the Mixture of Experts forecasting task?,"The input features are outside temperature, historical heat load, and four temporal encodings: sin(Month), cos(Month), sin(Hour), and cos(Hour).","1) Conclusion
+The Mixture of Experts forecasting task uses outside temperature, historical heat load, and four temporal encodings as input features.
+
+2) Explanation
+- Input features are outside temperature (T) and a historical time series of the heat load (Q̇).
+- Four temporal encodings are added: sin(Month), cos(Month), sin(Hour), and cos(Hour).
+- The task predicts heat load at time t+h from a look-back window of w steps.
+- Each expert learns this mapping within its assigned building cluster.
+
+3) Evidence
+- [C5]: Feature selection lists outside temperature, historical heat load, and the four temporal encodings; the forecasting task is defined over a look-back window.
+- [C5]: Outside temperature shows a strong negative correlation with heat load.
+
+4) Assumptions & Scope
+- This feature set applies to the heat load forecasting experiments in this paper; other cited works use larger weather-based feature sets [C6].
+
+5) Suggested Next Retrieval
+Mixture of Experts heat load forecasting input features look-back window temporal encoding","[C1] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.17: performance across datasets demonstrates the scalability of
+the approach to different building types and heat load regimes.
+In conclusion, the Mixture of Experts framework advances
+heat load forecasti
+[C2] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.14: Figure 13 presents the distribution of gating weights for the
+Low, Medium, and High experts across all buildings and
+datasets. Although the gating layer uses a continuous softmax
+function, the results
+[C3] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.12: expert specialization through gating. Across short and long
+horizons, the benefit of MoE is not confined to a single setup.
+Even in the few non-significant cases, the mean improve-
+ment remains positi
+[C4] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.18: [36] J. Sievers, T. Blank, and F. Simon, ‘‘Advancing accuracy in energy
+forecasting using mixture-of-experts and federated learning,’’ in
+Proceedings of the 15th ACM International Conference on Future
+[C5] An_Explainable_Transformer-based_Mixture_of_Expert.pdf p.6: Pedram Babakhaniet al.: An Explainable Transformer-based Mixture of Experts for Heat Load Forecasting
+B. FORECASTING TASK
+Given a multivariate time series{(x t ,y t )}T
+t=1 , wherex t ∈
+RC are input f
+[C6] Improving heat demand forecasting with feature reduction in an.pdf p.2: age the strengths of multiple techniques, improving performance on 
+complex tasks and creating versatile models. Hybrid models introduced 
+in Chung et al. (2022-05), Song et al. (2021) can extract spa",1,1,
+s021,What kind of investigation does the operating room study use to compare ventilation schemes?,It combines experimental measurements in a research operating room with numerical investigations to compare laminar air flow and turbulent mixing ventilation.,"1) Conclusion (1–2 sentences)
+The operating room study uses both **experimental and numerical investigations** in a research OR to compare laminar air flow (LAF) and turbulent mixing ventilation (TMV) schemes.
+
+2) Explanation
+- The study explicitly states that ""Experimental and numerical investigations were performed in a research operating room to compare laminar air flow and turbulent mixing ventilation systems"" [C1].
+- The experiments used particle counters to sample tracer aerosols from the wound area and the facial area of thermal manikins representing surgical staff [C17].
+- The research OR setup was compatible with DIN 1946-4 instructions, and the study aimed to provide a detailed comparison of TMV and LAF performance considering surgical smoke and contaminant release from medical staff [C2].
+- The conclusion reiterates that the spread of airborne germs and surgical smoke was investigated ""experimentally and numerically"" in a research OR, with LAF and TMV as the ventilation systems and TMV ventilation rate varied between 20 and 40 h⁻¹ [C18].
+
+3) Evidence
+- [C1] Abstract states experimental and numerical investigations were performed in a research OR to compare LAF and TMV in reducing airborne germs and surgical smoke; particle counters were used.
+- [C2] Study aims to provide a detailed comparison of TMV and LAF performance, with experiments conducted in an OR setup compatible with DIN 1946-4.
+- [C17] Particle counters sampled tracer aerosols from wound area and facial area of thermal manikins representing surgical staff.
+- [C18] Conclusion confirms the spread of airborne germs and surgical smoke was investigated experimentally and numerically, with LAF and TMV used and TMV ventilation rate varied between 20 and 40 h⁻¹.
+
+4) Assumptions & Scope
+- The answer is limited to the ventilation-scheme comparison described in the provided context (LAF vs. TMV).
+- No details are given on the specific numerical method (e.g., CFD software) beyond references in the bibliography; the context does not elaborate on numerical model specifics.
+
+5) Suggested Next Retrieval
+- ""CFD simulation setup operating room LAF TMV""
+- ""particle counter tracer aerosol measurement methodology operating room""
+- ""DIN 1946-4 research operating room test stand""","[C1] Experimental analysis of airborne contaminant distribution in an operating.pdf p.1: Building and Environment 244 (2023) 110783
+Available online 30 August 2023
+0360-1323/© 2023 Elsevier Ltd. All rights reserved.
+Experimental analysis of airborne contaminant distribution in an operatin
+[C2] Experimental analysis of airborne contaminant distribution in an operating.pdf p.2: always valuable and can present more reliable findings under more 
+realistic conditions. 
+Therefore, this study aims to fill the gap in the literature by providing 
+a detailed comparison of the perfor
+[C3] Experimental analysis of airborne contaminant distribution in an operating.pdf p.14: 170 – 178, https://doi.org/10.1016/j.partic.2014.06.002 . 
+[46] S. Sadrizadeh, S. Holmberg, A. Tammelin, A numerical investigation of vertical and 
+horizontal laminar airflow ventilation in an operati
+[C4] Experimental analysis of airborne contaminant distribution in an operating.pdf p.14: G. Skogås, The impact of air change rate on the air quality of surgical 
+microenvironment in an operating room with mixing ventilation, J. Build. Eng. 32 
+(2020), 101770, https://doi.org/10.1016/j.job
+[C5] Experimental analysis of airborne contaminant distribution in an operating.pdf p.13: C. Croitoru, A. Khan, M. Kriegel, M. Lind, Z. Liu, A. Melikov, J. Mo, H. Rotheudt, 
+R. Yao, Y. Zhang, O. Abouali, H. Langvatn, O. Sk ¨oldenberg, G. Cao, A systematic 
+review of operating room ventilat
+[C6] Experimental analysis of airborne contaminant distribution in an operating.pdf p.13: Assessment of operating room airflow using air particle counts and direct 
+observation of door openings, Am. J. Infect. Control 45 (2017) 477 – 482, https:// 
+doi.org/10.1016/j.ajic.2016.12.018 . 
+[31
+[C7] Experimental analysis of airborne contaminant distribution in an operating.pdf p.13: turbulent mixing operating theatre, Build. Environ. 110 (2016) 140 – 147, https:// 
+doi.org/10.1016/j.buildenv.2016.10.005 . 
+[28] G. Cao, C. Pedersen, Y. Zhang, F. Drangsholt, A. Radtke, H. Langvatn,
+[C8] Experimental analysis of airborne contaminant distribution in an operating.pdf p.14: system on ultrafine particle transport and deposition, Atmos. Environ. 270 (2022), 
+118901, https://doi.org/10.1016/j.atmosenv.2021.118901 . 
+[56] V. Hofer, M. Kriegel, Exposure of operating room surg
+[C9] Experimental analysis of airborne contaminant distribution in an operating.pdf p.14: compared with turbulent ventilated operating theatres during live total joint 
+arthroplasty: a nationwide survey, J. Hosp. Infect. 113 (2021) 65 – 70, https://doi. 
+org/10.1016/j.jhin.2021.04.019 . 
+[
+[C10] Experimental analysis of airborne contaminant distribution in an operating.pdf p.14: conventionally ventilated operating theatre, J. Hosp. Infect. 66 (2007) 313 – 319, 
+https://doi.org/10.1016/j.jhin.2007.05.022 . 
+[43] D. Casagrande, M. Piller, Conflicting effects of a portable ultra
+[C11] Experimental analysis of airborne contaminant distribution in an operating.pdf p.2: by Xue et al. [ 51 ]. Results suggested that a layout should be well eval -
+uated to guarantee a safe zone. Knudsen et al. [ 52 ] performed field 
+measurements in 17 ORs equipped with either TMV or LA
+[C12] Experimental analysis of airborne contaminant distribution in an operating.pdf p.13: velocity distribution and airborne contamination level in an operating room with 
+laminar airflow system, Build. Environ. 126 (2017) 42 – 53, https://doi.org/ 
+10.1016/j.buildenv.2017.09.024 . 
+[22] G
+[C13] Experimental analysis of airborne contaminant distribution in an operating.pdf p.13: 10.1016/j.ajic.2012.01.007 . 
+[12] M. Diab-Elschahawi, J. Berger, A. Blacky, O. Kimberger, R. Oguz, R. Kuelpmann, 
+A. Kramer, O. Assadian, Impact of different-sized laminar air flow versus no 
+laminar
+[C14] Experimental analysis of airborne contaminant distribution in an operating.pdf p.2: understood to satisfy the required protection. To this end, multiple 
+experimental and numerical investigations can be found in the literature 
+that deal with various important parameters that are eff
+[C15] Experimental analysis of airborne contaminant distribution in an operating.pdf p.14: doi.org/10.1016/j.jobe.2022.104109 . 
+[36] E.S. Mousavi, R. Jafarifiroozabadi, S. Bayramzadeh, A. Joseph, D. San, An 
+observational study of door motion in operating rooms, Build. Environ. 144 (2018) 
+[C16] Experimental analysis of airborne contaminant distribution in an operating.pdf p.14: https://doi.org/10.1016/0045-7930(94)00032-T . 
+[70] H. Alsaad, C. Voelker, Performance assessment of a ductless personalized 
+ventilation system using a validated cfd model, J. Build. Perform. Simul.
+[C17] Experimental analysis of airborne contaminant distribution in an operating.pdf p.1: that are suited best for airborne monitoring in real-time during surgeries. In the experiments, particle counters 
+were used to sample tracer aerosols originating from the wound area and the facial ar
+[C18] Experimental analysis of airborne contaminant distribution in an operating.pdf p.10: stant, ideal values without any movement of the people. The buoyancy 
+plume could therefore differ in reality, especially in superposition with 
+the lamps and a movement of the surgical stuff. 
+Other ",1,1,
+s022,How does the UVC versus HEPA study estimate particle residence times and irradiation dosages?,It uses computational fluid dynamics (CFD) simulations to determine particle residence times and irradiation dosages inside the UVC chamber.,"1) Conclusion
+The study estimates particle residence time and UVC irradiation dosage by combining CFD-based simulation with analytical modelling: residence time in the irradiation zone is derived from flow/geometry (CFD), and dosage is calculated as irradiation intensity multiplied by residence time, then scaled to a cumulative dosage by the number of passes through the chamber.
+
+2) Explanation
+- Dosage is defined as the product of irradiation intensity and the microorganism's residence time in the active UVC field [C7][C10].
+- At a flow rate of 200 m³ h⁻¹, the mean residence time in the irradiation zone is about 0.5 s; with a measured average intensity of 81.5 W m⁻², this gives a mean per-pass dosage of ~40.75 J m⁻² [C5].
+- Numerical (CFD) simulations give a comparable median dosage of 42 J m⁻² under the same conditions, supporting the analytical estimate [C5][C2].
+- The per-pass dosage only reflects one transit; for room-scale purification, repeated recirculation is accounted for by multiplying per-pass dosage by the average number of passes, yielding a cumulative dosage of ~192 J m⁻² over 10 min [C9].
+- A representative dosage of 40 J m⁻² is assumed for the energy analysis, corresponding to experimentally observed inactivation comparable to HEPA [C6].
+- Uncertainty in dosage and energy quantities is estimated at roughly 10–20%, driven by airflow rate and radiation intensity deviations [C4].
+
+3) Evidence
+- [C7] Dosage (J m⁻²) = irradiation intensity × residence time in the active UVC field.
+- [C5] Mean residence time ~0.5 s at 200 m³ h⁻¹; intensity 81.5 W m⁻² → per-pass dosage ~40.75 J m⁻²; CFD median 42 J m⁻².
+- [C9] Cumulative dosage ~192 J m⁻² over 10 min from per-pass dosage × average passes (~4.73 passes).
+- [C6] Representative dosage of 40 J m⁻² assumed, matching experimental inactivation comparable to HEPA.
+- [C4] Overall uncertainty of derived dosage/energy ~10–20%.
+
+4) Assumptions & Limitations
+- Per-pass dosage characterizes only a single transit and does not represent total room-scale irradiation effect [C5].
+- Cumulative dosage depends on measurement and modelling assumptions; radiation intensity, residence time distribution, and airflow patterns may cause deviations [C9].
+- Required dosage remains uncertain and depends on virus type, environmental conditions, and target inactivation level [C1].
+
+5) Next Retrieval Suggestions
+- ""CFD residence time distribution UVC chamber""
+- ""per-pass dosage cumulative dosage equation Eq. 4 Eq. 5""
+- ""irradiation intensity measurement uncertainty airflow rate""
+- ""number of passes air exchange rate calculation""","[C1] Energetic comparison of the inactivation of airborne corona viruses using.pdf p.6: reduction from 57 to 320 J m−2 [11]. Moreover, the necessary dosage 
+varies between summer and winter, suggesting an impact of humidity 
+[6]. For aerosolized viruses, a lower dose has been observed to
+[C2] Energetic comparison of the inactivation of airborne corona viruses using.pdf p.5: surements, this corresponds to a median dosage of 42 J m−2. The ﬁgure 
+also presents curves based on numerically determined median residence 
+times at various ﬂow rates to deliver a median dosage of 4
+[C3] Energetic comparison of the inactivation of airborne corona viruses using.pdf p.7: ergy demand associated with airborne virus mitigation using UVC ir-
+radiation and HEPA ﬁltration in a decentralized air puriﬁcation de-
+vice. By combining previously published experimental data on cor
+[C4] Energetic comparison of the inactivation of airborne corona viruses using.pdf p.5: dosage and energy demand. In particular, deviations in airﬂow rate and 
+radiation intensity directly inﬂuence the calculated residence time and 
+resulting dosage. Based on the speciﬁed instrument accu
+[C5] Energetic comparison of the inactivation of airborne corona viruses using.pdf p.6: rate of 200 m3 h−1 result in a mean residence time 𝑡𝑟 of about 0.5 s for 
+particles within the irradiation zone. Based on the measured average 
+radiation intensity of 81.5 W m−2, this corresponds to a
+[C6] Energetic comparison of the inactivation of airborne corona viruses using.pdf p.7: source, and the geometric characteristics of the irradiation chamber. The 
+corresponding relationship can be expressed as:
+𝑃𝑒𝑙 = 𝑘 𝐷
+𝜂𝑈 𝑉 𝐶
+𝑄 (7)
+where 𝐷 is the required irradiation dosage, 𝜂𝑈 𝑉 𝐶 is 
+[C7] Energetic comparison of the inactivation of airborne corona viruses using.pdf p.2: G. Brockmann et al.
+hospitals, and food production facilities for their germicidal properties 
+[8]. However, UVC light is harmful to human skin and eyes, so proper 
+shielding and safety interlocks are
+[C8] Energetic comparison of the inactivation of airborne corona viruses using.pdf p.2: formance of two diﬀerent air decontamination strategies in a decentral-
+ized air puriﬁcation device: virus inactivation using UVC irradiation and 
+virus removal using HEPA ﬁltration. Building on previ
+[C9] Energetic comparison of the inactivation of airborne corona viruses using.pdf p.6: passage
+Air exchange rate 𝑛 28.5 h−1 volume ﬂow rate per 
+room volume
+Passes in 10 min 𝑁  4.73 amount of passes in the 
+measured time
+Cumulative dosage 𝐷𝑐 192 J m−2 Total dosage after 10 min
+Literatur
+[C10] Energetic comparison of the inactivation of airborne corona viruses using.pdf p.2: diation intensity and the microorganism’s residence time in the active 
+UVC irradiation ﬁeld. This dosage is key to the eﬃcacy  of inactivating 
+or eliminating microorganisms in the airstream and depe
+[C11] Energetic comparison of the inactivation of airborne corona viruses using.pdf p.4: varying volume ﬂow rates for three distinct conﬁgurations: H14 ﬁlter, 
+E11 ﬁlter, and UVC chamber without additional ﬁltration (see Fig. 3).
+All curves exhibit an increase in power demand that is cons",1,1,
+s023,What was the total retrofit cost of the Cambridge office building in GBP?,The corpus does not report a retrofit cost for the Cambridge building.,"1) Conclusion (1-2 sentences)
+INSUFFICIENT_CONTEXT: No information is available about a Cambridge office building retrofit or its cost.
+
+2) Explanation (bullet points)
+- The question asks for a specific retrofit cost in GBP for a Cambridge office building.
+- No project details, cost figures, or reference data were provided in the context.
+- Without a defined building, retrofit scope, or cost breakdown, no total can be determined.
+
+3) Evidence
+- None provided in the context.
+
+4) Assumptions & Scope
+- Assumed the question refers to a specific known retrofit project, but no identifying details or cost data were supplied.
+- No external retrieval was used, per instructions.
+
+5) Suggested Next Retrieval
+- Retrieve project documentation or cost reports for the specific Cambridge office building retrofit, including scope of works, tender/contract sums, and any published GBP cost figures.",,1,1,
+s024,How does the gas turbine study isolate steady-state operation?,It filters the data to a steady-state subset using a fuel flow rate threshold of 65 KPPH (about 8.19 kg/s).,"1) Conclusion
+The study isolates steady-state operation by applying a threshold-based filter on Fuel Flow Rate (FFR ≥ 65 KPPH, equivalent to 8.19 kg/s) to exclude startup, shutdown, and low-load periods, then comparing the same models on the original mixed-regime dataset versus this filtered subset.
+
+2) Explanation
+- The isolation is achieved through a physically motivated FFR threshold filter, not a new algorithm; the contribution is empirical and lies in the paired-regime comparison design [C1].
+- The selected threshold is 65 KPPH (≈8.19 kg/s), chosen from candidate thresholds tested across 50–75 KPPH; the 75 KPPH threshold was excluded from direct comparison due to a substantially smaller test set [C3][C5].
+- The filter's purpose is to remove startup, shutdown, and low-load periods marked by unstable combustion, reduced mass flow, and weak thermodynamic interrelation between operational parameters and power output [C6].
+- All six candidate thresholds fell within a narrow band and consistently separated near-zero idle periods from sustained high-FFR operating clusters; upper-end thresholds risked excluding genuine load-bearing operation [C6].
+- The same models (Linear Regression, Random Forest, XGBoost, ANN) were evaluated on both the original and filtered datasets to reveal regime-dependent effects [C1][C5].
+
+3) Evidence
+- [C1] The novelty lies in a deliberate paired-regime comparison where the same models are evaluated on the same data before and after isolating steady-state operation.
+- [C5] Steady-state filtered subset defined as Fuel Flow Rate ≥ 65 KPPH (equivalent to 8.19 kg/s); models compared on original mixed-regime dataset and this filtered subset.
+- [C6] Threshold-based FFR filter applied to exclude startup, shutdown, and low-load periods; six thresholds tested, all separating idle from sustained high-FFR clusters.
+- [C3] Candidate FFR thresholds spanned 50–75 KPPH, with 65 KPPH selected; 75 KPPH excluded due to smaller test set.
+- [C2] Once steady-state operation is isolated, models converge on compressor exit pressure as dominant predictor (45.2–82.7% of total SHAP importance).
+
+4) Assumptions & Scope
+- The isolation relies solely on an FFR threshold; no additional steady-state criteria (e.g., load ramp-rate or temperature stability) are described in the provided context.
+- The context does not detail the full threshold-selection methodology beyond the candidate range and retention/RMSE comparison; finer selection rationale is not fully specified.
+
+5) Suggested Next Retrieval
+- ""FFR threshold selection criteria steady-state filter""
+- ""sample retention threshold sensitivity gas turbine""
+- ""transient detection load ramp exclusion gas turbine dataset""
+- ""steady-state definition industrial gas turbine monitoring""","[C1] Operational regime dependence of model performance and feature.pdf p.2: ment. Together, these findings demonstrate that both model selection 
+and feature interpretation in gas turbine power prediction are funda -
+mentally regime-dependent, carrying direct implications for
+[C2] Operational regime dependence of model performance and feature.pdf p.1: transition. The ranking reverses when steady-state operation is isolated, with Linear Regression achieving the 
+lowest error of all four models (RMSE = 1.74 MW, versus 2.14 – 3.69 MW for the nonlinear
+[C3] Operational regime dependence of model performance and feature.pdf p.14: gas turbine power prediction but is contingent on the operating regime 
+represented in the data, with direct implications for model selection 
+where steady-state operation can be reliably isolated.
+A 
+[C4] Operational regime dependence of model performance and feature.pdf p.4: separated from steady-state operation [23] . Similarly, ANN-based heat- 
+rate prediction studies using industrial CCPP data have been limited to 
+comparatively short monitoring periods, without an exp
+[C5] Operational regime dependence of model performance and feature.pdf p.1: been widely applied to gas turbine power prediction, existing studies typically evaluate models over a single, 
+mixed operating regime and do not examine how feature importance and model rankings chan
+[C6] Operational regime dependence of model performance and feature.pdf p.7: overlaid on the time-series to examine their position relative to these 
+operating regions. All six thresholds fall within a narrow band relative to 
+the full operating range, consistently separating ",1,1,
+s025,How many patients were included in the operating room experiments?,The experiments used thermal manikins in a research operating room; no patient count is reported.,"1) Conclusion (1–2 sentences)
+The provided Context does not state how many patients were included in the operating room experiments.
+
+2) Explanation
+- The Context describes experimental setups in operating rooms (ORs), including particle measurements, tracer particles for surgical smoke, and particle emission from surgical staff, but it does not report a patient count. [C4][C5]
+- One cited study mentions field measurements in 17 ORs, but this refers to the number of operating rooms, not patients. [C1]
+- No passage in the Context provides a number of patients included in the OR experiments.
+
+3) Evidence
+- [C1] Mentions field measurements in 17 ORs equipped with TMV or LAF systems; this is an OR count, not a patient count.
+- [C4] Describes particle measurements and measurement positions in the experimental investigation, without mentioning patients.
+- [C5] Describes two release cases (surgical smoke and facial-area particle emission from surgical staff) and tracer particles, without reporting patient inclusion.
+
+4) Assumptions & Scope
+- No assumption is made that “patients” were part of the experiments; the Context only supports discussion of OR experiments, measurement positions, ventilation conditions, and particle sources.
+- The answer is limited strictly to the provided Context.
+
+5) Suggested Next Retrieval
+INSUFFICIENT_CONTEXT: The Context does not contain patient enrollment or participant numbers for the operating room experiments.
+Suggested retrieval keywords: “number of patients,” “patient enrollment,” “participants,” “clinical experiments,” “operating room experiments patients,” “human subjects,” “surgical patients included.”","[C1] Experimental analysis of airborne contaminant distribution in an operating.pdf p.2: by Xue et al. [ 51 ]. Results suggested that a layout should be well eval -
+uated to guarantee a safe zone. Knudsen et al. [ 52 ] performed field 
+measurements in 17 ORs equipped with either TMV or LA
+[C2] Experimental analysis of airborne contaminant distribution in an operating.pdf p.13: Sarawak General Hospital Heart Centre (SGHHC) in Malaysia, Indoor Built. 
+Environ. 23 (2014) 1129 – 1141, https://doi.org/10.1177/1420326X13499359 . 
+[25] S. Sadrizadeh, A. Tammelin, P. Ekolind, S. Ho
+[C3] Energetic comparison of the inactivation of airborne corona viruses using.pdf p.3: 20 min. The V2 setup simulated a scenario where an infectious person 
+remained in the room. In this setup, FCoV aerosolization was performed 
+for 10 min while the device was simultaneously in operatio
+[C4] Experimental analysis of airborne contaminant distribution in an operating.pdf p.5: mesh structures [ 74 ]. Based on the deviations and computational cost 
+the grid with a density of 1.31 million cells was employed in the simu -
+lations. The boundary conditions specified is given in 
+[C5] Experimental analysis of airborne contaminant distribution in an operating.pdf p.4: different measurement positions. The particle counter and the 
+measuring point switch were located outside the OP. During the particle 
+counts, air was simultaneously drawn in at all measuring points 
+[C6] Experimental analysis of airborne contaminant distribution in an operating.pdf p.13: I. Fraser, H. Humphreys, Microbiological commissioning and monitoring of 
+operating theatre suites, J. Hosp. Infect. 52 (2002) 1 – 28, https://doi.org/10.1053/ 
+jhin.2002.1237 . 
+[6] O.M. Lidwell, F.H",1,1,

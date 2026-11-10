@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>建筑技术知识库</title>
+  <style>
+    :root { --bg:#f6f7f9; --card:#fff; --line:#e3e6ea; --ink:#1f2328; --muted:#6b7280; --accent:#2563eb; }
+    * { box-sizing: border-box; }
+    body { margin:0; font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--ink); }
+    main { max-width: 900px; margin: 0 auto; padding: 28px 20px 60px; }
+    h1 { font-size: 22px; margin: 0 0 4px; }
+    .sub { color: var(--muted); margin-bottom: 20px; }
+    .panel { background: var(--card); border:1px solid var(--line); border-radius: 10px; padding: 16px; margin-bottom: 16px; }
+    textarea { width:100%; min-height:88px; resize:vertical; padding:12px; border:1px solid var(--line); border-radius:8px; font:inherit; }
+    .row { display:flex; gap:10px; align-items:center; margin-top:10px; flex-wrap:wrap; }
+    select, button { padding:9px 12px; border-radius:8px; border:1px solid var(--line); font:inherit; background:#fff; }
+    button.primary { background: var(--accent); color:#fff; border-color:var(--accent); cursor:pointer; }
+    button.primary:disabled { opacity:.55; cursor: wait; }
+    .examples { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .examples button { font-size:13px; color:var(--muted); background:#f9fafb; cursor:pointer; }
+    pre.answer { white-space: pre-wrap; word-break: break-word; margin:0; font:inherit; }
+    .meta { color: var(--muted); font-size:13px; margin-top:10px; }
+    .citations { display:grid; gap:8px; }
+    .cite { border:1px solid var(--line); border-radius:8px; padding:10px 12px; background:#fbfcfd; }
+    .cite b { color: var(--accent); margin-right:6px; }
+    .cite .src { color: var(--muted); font-size:13px; }
+    .cite p { margin:6px 0 0; color:#374151; font-size:13px; }
+    .error { color:#b91c1c; }
+    .hidden { display:none; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>建筑技术知识库</h1>
+  <div class="sub">Agentic RAG over HRI building-technology papers. 答案中的 [C#] 可在下方引用卡片中定位。</div>
+
+  <div class="panel">
+    <textarea id="question" placeholder="用中文或英文提问，例如：添加 occupancy 数据能提升酒店供暖负荷预测吗？"></textarea>
+    <div class="row">
+      <select id="mode">
+        <option value="rag_0shot">RAG 0-shot</option>
+        <option value="fewshot_3">Few-shot 3</option>
+        <option value="fewshot_no_cot_3">Few-shot 3 (no CoT)</option>
+        <option value="rag_k18">RAG k=18</option>
+        <option value="agent">Agentic RAG</option>
+        <option value="llm_structured">LLM 闭卷</option>
+      </select>
+      <button class="primary" id="ask">提问</button>
+      <span id="status" class="meta"></span>
+    </div>
+    <div class="examples">
+      <button data-q="Does adding occupancy data improve heating load forecasting in hotels?">英文：occupancy</button>
+      <button data-q="添加 occupancy 数据能提升酒店供暖负荷预测吗？">中文：occupancy</button>
+      <button data-q="Which study reports the larger relative error reduction: occupancy NRMSE or MoE NRMSE on Demandlib?">英文：多跳对比</button>
+      <button data-q="HeatShift-HP 中把供水温度从 40 降到 35 度会怎样？">中文：热泵</button>
+    </div>
+  </div>
+
+  <div class="panel hidden" id="answer-panel">
+    <pre class="answer" id="answer"></pre>
+    <div class="meta" id="meta"></div>
+  </div>
+
+  <div class="panel hidden" id="cite-panel">
+    <div class="sub" style="margin:0 0 10px">引用来源</div>
+    <div class="citations" id="citations"></div>
+  </div>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+
+document.querySelectorAll(".examples button").forEach((btn) => {
+  btn.addEventListener("click", () => { $("question").value = btn.dataset.q; $("question").focus(); });
+});
+
+$("ask").addEventListener("click", async () => {
+  const question = $("question").value.trim();
+  if (!question) return;
+  $("ask").disabled = true;
+  $("status").textContent = "检索与生成中…";
+  $("status").className = "meta";
+  try {
+    const res = await fetch("/api/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question, mode: $("mode").value }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.detail || "请求失败");
+
+    $("answer").textContent = data.answer || "(空)";
+    const u = data.usage || {};
+    $("meta").textContent =
+      `mode=${data.mode} · latency=${Number(data.latency_sec || 0).toFixed(2)}s · ` +
+      `tokens=${u.input_tokens || 0}+${u.output_tokens || 0} · cost=¥${Number(u.cost_cny || 0).toFixed(4)}`;
+
+    const citations = data.citations || [];
+    $("citations").innerHTML = citations.map((c) => `
+      <div class="cite">
+        <b>[${c.label}]</b><span class="src">${c.source_basename || ""}${c.page ? " · p." + c.page : ""}</span>
+        <p>${(c.snippet || "").replace(/</g, "&lt;")}</p>
+      </div>`).join("");
+    $("answer-panel").classList.remove("hidden");
+    $("cite-panel").classList.toggle("hidden", citations.length === 0);
+    $("status").textContent = "";
+  } catch (err) {
+    $("status").textContent = err.message;
+    $("status").className = "meta error";
+  } finally {
+    $("ask").disabled = false;
+  }
+});
+</script>
+</body>
+</html>
